@@ -6,11 +6,11 @@ if (isset($_POST['search'])) {
 ?>
 
 <form action="" method="POST" class="mt-4">
-    <select name="criteria" class="form-control-sm" >
-        <option value="price_asc">Price low - high</option>
-        <option value="price_desc">Price high - low</option>
+    <select name="criteria" class="form-control-sm">
         <option value="country_asc">Country a-z</option>
         <option value="country_desc">Country z-a</option>
+        <option value="price_asc">Price low - high</option>
+        <option value="price_desc">Price high - low</option>
     </select>
     <button type="submit" class="btn btn-sm btn-primary" name="search">Search</button>
 </form>
@@ -28,7 +28,7 @@ if (isset($_POST['search'])) {
         <div class="col-md-6">
             <h3> About <?php echo $row['city']; ?></h3>
             <p><?php echo $row['description']; ?></p>
-            <a class="btn btn-primary btn-lg" href="?url=property<?php echo '&address='.$row['street'] . $row['number'] . '&city='.$row['city'] . '&country='. $row['country']; ?>" role="button">
+            <a class="btn btn-primary btn-lg" href="?url=property<?php echo '&address=' . $row['street'] . $row['number'] . '&city=' . $row['city'] . '&country=' . $row['country']; ?>" role="button">
                 Read more about <?php echo $row['city']; ?></a>
         </div>
     </div>
