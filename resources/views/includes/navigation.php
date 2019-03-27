@@ -22,7 +22,6 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="?url=dashboard">Dashboard</a>
-                        <a class="dropdown-item" href="?url=register">Registrate user</a>
                         <a class="dropdown-item" href="?url=logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</a>
                         <form id="logout-form" action="?url=logout" method="POST" style="display: none;"></form>
                     </div>
