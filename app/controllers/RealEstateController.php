@@ -3,7 +3,7 @@ require_once(DB);
 
 class RealEstate
 {
-    private static $order_by = null;
+    private static $order_by = 'ORDER BY rand';
 
     public static function upload($city, $country, $street, $number, $price, $description, $image)
     {
@@ -19,14 +19,14 @@ class RealEstate
                     DB::insert(
                         "INSERT INTO realEstate VALUES (id, :city, :country, :street, :number, :price, :price_int, :description, :image)",
                         [
-                            ":city"         => $city,
-                            ":country"      => $country,
-                            ":street"       => $street,
-                            ":number"       => $number,
-                            ":price"        => $price,
-                            ":price_int"    => str_replace('.', '', $price),
-                            ":description"  => $description,
-                            ":image"        => $name,
+                            ":city"         => htmlspecialchars(strip_tags($city)),
+                            ":country"      => htmlspecialchars(strip_tags($country)),
+                            ":street"       => htmlspecialchars(strip_tags($street)),
+                            ":number"       => htmlspecialchars(strip_tags($number)),
+                            ":price"        => htmlspecialchars(strip_tags($price)),
+                            ":price_int"    => htmlspecialchars(strip_tags(str_replace('.', '', $price))),
+                            ":description"  => htmlspecialchars(strip_tags($description)),
+                            ":image"        => htmlspecialchars(strip_tags($name)),
                         ]
                     );
                     $msg = '&upload=success';
