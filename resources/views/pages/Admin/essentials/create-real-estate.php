@@ -44,7 +44,7 @@ if (isset($_SESSION['logged_in'])) {
                 <div class="form-group row">
                     <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" name="price" id="price" required>
+                        <input type="number" class="form-control" name="price" id="price" required>
                     </div>
                 </div>
 
