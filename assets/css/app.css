@@ -1,0 +1,2 @@
+a.navbar-brand {margin-right: 0 !important;}
+@media all and (min-width: 768px) {a.navbar-brand {margin-right: 1rem !important;}}

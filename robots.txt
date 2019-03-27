@@ -1,0 +1,12 @@
+# Rule 1
+User-agent: *
+Disallow: /app/
+Disallow: /assets/
+Disallow: /resources/
+Disallow: /routes/
+Disallow: /vendor/
+
+
+# Rule 2
+User-agent: *
+Allow: /
