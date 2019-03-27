@@ -3,7 +3,7 @@ require_once(DB);
 
 class RealEstate
 {
-    private static $order_by = 'ORDER BY rand';
+    private static $order_by = 'ORDER BY RAND()';
 
     public static function upload($city, $country, $street, $number, $price, $description, $image)
     {
