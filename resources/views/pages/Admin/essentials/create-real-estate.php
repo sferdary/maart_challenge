@@ -12,7 +12,7 @@ if (isset($_SESSION['logged_in'])) {
         <div class="card-header">Add new real estate</div>
         <div class="card-body">
             <form action="" method="POST" class="md-form" enctype="multipart/form-data">
-
+            <input type="hidden" name="_token" value="<?php echo $_SESSION['_csrf']; ?>">
                 <div class="form-group row">
                     <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
                     <div class="col-md-4">

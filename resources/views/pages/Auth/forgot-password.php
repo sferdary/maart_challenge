@@ -18,6 +18,7 @@ print_r(ForgotPassword::request($email));
 
         <div class="card-body">
             <form method="POST" action="">
+            <input type="hidden" name="_token" value="<?php echo $_SESSION['_csrf']; ?>">
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Email address</label>
 

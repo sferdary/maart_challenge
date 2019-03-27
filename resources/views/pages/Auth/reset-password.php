@@ -14,6 +14,7 @@ if (isset($_GET['validate']) && isset($_GET['token'])) {
                     <div class="card-header">Reset password</div>
                     <div class="card-body">
                         <form method="POST" action="">
+                        <input type="hidden" name="_token" value="<?php echo $_SESSION['_csrf']; ?>">
                             <input type="hidden" name="selector" id="selector" value="<?php echo $_GET['validate']; ?>" required>
                             <input type="hidden" name="token" id="token" value="<?php echo $_GET['token']; ?>" required>
                             <div class="form-group row">

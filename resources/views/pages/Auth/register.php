@@ -26,7 +26,7 @@ if (isset($_SESSION['logged_in'])) {
 <div class="justify-content-center">
     <div class="card mt-3">
         <div class="card-header">Register</div>
-
+        <input type="hidden" name="_token" value="<?php echo $_SESSION['_csrf']; ?>">
         <div class="card-body">
             <form method="POST" action="">
 
