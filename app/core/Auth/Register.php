@@ -65,14 +65,15 @@ class Register
 
         if (!isset($exception)) {
             self::$create = array(
-                ":user_name" => $username,
-                ':first_name' => $firstName,
-                ':last_name' => $lastName,
-                ':email_addr' => $email,
-                ':pwd' =>  base64_encode(password_hash($pwd, PASSWORD_DEFAULT)),
-                ':vkey' => md5(time() . $username),
-                ':verified' => null,
-                ':created_at' => date('Y-m-d h:i:s.u ', time())
+                ":user_name"    => $username,
+                ':first_name'   => $firstName,
+                ':last_name'    => $lastName,
+                ':email_addr'   => $email,
+                ':pwd'          =>  base64_encode(password_hash($pwd, PASSWORD_DEFAULT)),
+                ':vkey'         => md5(time() . $username),
+                ':verified'     => null,
+                ':created_at'   => date('Y-m-d h:i:s.u ', time()),
+                'temp_pwd'      => $pwd
             );
             return self::$authenticated = true;
         } else {
@@ -102,11 +103,14 @@ class Register
             $email = self::$create[':email_addr'];
             $vkey = self::$create[':vkey'];
             $link = "<a href='http://".$_SERVER['SERVER_NAME'].":88/?url=verify&validate=$vkey'>here</a>";
-            $subject = 'Verify your account';
-            $recipient = "Dear $name,<br><br>";
-            $phrase = "Click $link to verify your account <br><br>";
+
+            $subject    = 'Verify your account';
+            $recipient  = "Dear $name,<br><br>";
+            $phrase     = "Click $link to verify your account <br>";
+            $phrase    .= "Your temporary password is: ".self::$create['temp_pwd']."<br><br>";
             $conclusion = 'Kind regards, <br>Samuel Ferdary';
-            $message = $recipient . $phrase . $conclusion;
+            $message    = $recipient . $phrase . $conclusion;
+            
             if (Mail::send($email, $subject, $message) == false) {
                 return false;
             }else{
